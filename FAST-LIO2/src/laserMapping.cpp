@@ -1049,12 +1049,12 @@ int main(int argc, char **argv) {
 
             //Please note that boxplus and boxminus opraters are overloaded in include/common_lib.h,
             //So you can directly add delta_x (which is a vector) to a state, such as: state += delta_x.
-            //Please note (y_k - h(x)) represents the point-to-plane distance residual, where y_k is the measurement, h(x) is the measurement model of state.
-            //Here, Z_ defined above is actually the (y_k - h(x)).
+            //Please note in the third formula in Page54 of the guideline, (y_k - h(x)) represents the point-to-plane distance residual, where y_k is the measurement, h(x) is the measurement model of state.
+            //Here, (y_k - h(x)) is given,, which is actually the Z_ defined in line 1001.
 
 
 
-            
+
           
             total_distance += (state.pos_end - position_last).norm();
             position_last = state.pos_end;

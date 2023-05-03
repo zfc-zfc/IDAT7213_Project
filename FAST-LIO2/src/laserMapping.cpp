@@ -1041,18 +1041,20 @@ int main(int argc, char **argv) {
             MatrixXd K_(DIM_STATE, effect_feat_num);
             K_.setZero();
 
+            // State Update
+            state.rot_end = M3D::Identity();
+            // Covariance Update and Reset
+            MD(DIM_STATE, DIM_STATE) Jk;
+            state.cov = state.cov;
+
             //Please note that boxplus and boxminus opraters are overloaded in include/common_lib.h,
             //So you can directly add delta_x (which is a vector) to a state, such as: state += delta_x.
             //Please note (y_k - h(x)) represents the point-to-plane distance residual, where y_k is the measurement, h(x) is the measurement model of state.
             //Here, Z_ defined above is actually the (y_k - h(x)).
 
-            // State Update
-            state.rot_end = M3D::Identity();
 
-            // Covariance Update and Reset
-            MD(DIM_STATE, DIM_STATE) Jk;
-            state.cov = state.cov;
 
+            
           
             total_distance += (state.pos_end - position_last).norm();
             position_last = state.pos_end;

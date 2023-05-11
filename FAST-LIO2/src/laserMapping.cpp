@@ -1099,8 +1099,10 @@ int main(int argc, char **argv) {
         rate.sleep();
     }
 
+
     cout << "Exit the process." << endl;
 
+    
 #ifndef DEPLOY
     vector<double> t, s_vec, s_vec2, s_vec3, s_vec4, s_vec5, s_vec6, s_vec7;
     FILE *fp2;

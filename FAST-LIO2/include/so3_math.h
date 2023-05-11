@@ -79,6 +79,7 @@ Eigen::Matrix<T, 3, 3> Exp(const T &v1, const T &v2, const T &v3)
 }
 
 
+//A(u) in IKFOM
 template<typename T>
 Eigen::Matrix<T, 3, 3> A_cal(const Eigen::Matrix<T, 3, 1> & ang_vel)
 {
@@ -89,7 +90,7 @@ Eigen::Matrix<T, 3, 3> A_cal(const Eigen::Matrix<T, 3, 1> & ang_vel)
         Eigen::Matrix<T, 3, 1> r_ang = ang_vel / norm;
         Eigen::Matrix<T, 3, 3> K;
         K << SKEW_SYM_MATRX(r_ang);
-        return Eye3  + (1.0 - std::cos(norm)/norm) * K + (1.0 - std::sin(norm)/norm) * K * K ;
+        return Eye3  + ((1.0 - std::cos(norm))/norm) * K + (1.0 - std::sin(norm)/norm) * K * K ;
     }
     else
     {

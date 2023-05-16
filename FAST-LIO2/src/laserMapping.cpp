@@ -1051,7 +1051,7 @@ int main(int argc, char **argv) {
             //So you can directly add delta_x (which is a vector) to a state, such as: state += delta_x.
             //Please note in the third formula in Page54 of the guideline, (y_k - h(x)) represents the point-to-plane distance residual, where y_k is the measurement, h(x) is the measurement model of state.
             //Here, (y_k - h(x)) is given,, which is actually the Z_ defined in line 1001.
-            //In the second formula in Page54 of the guideline, (Hk^T * Sigma.inverse() * Hk) is given, which is the H_transpose_R_inv defined in line 999.
+            //In the second formula in Page54 of the guideline, (Hk^T * Sigma.inverse()) is given, which is the H_transpose_R_inv defined in line 999.
 
           
             total_distance += (state.pos_end - position_last).norm();
